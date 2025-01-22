@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#o9$7p&8xwv2^+&#%*e*xhbzjp)1_)#lxgudlrff6wbe4o21f)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://127.0.0.1:8000/','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tinymce',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173'
+    'http://localhost:5173',
   # Replace with your frontend's development URL
 ]
 
@@ -98,7 +99,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
        'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'gdkosh' ,
+       'NAME': 'gurukul-drf' ,
        #os.getenv('DB_NAME'),
        'USER': 'postgres' ,
        #os.getenv('DB_USER'),
@@ -110,6 +111,14 @@ DATABASES = {
        #os.getenv('DB_PORT'),
     }
 }
+
+
+REST_FRAMEWORK = {
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+     ),
+}
+
 
 # Logger
 
