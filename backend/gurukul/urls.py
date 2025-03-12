@@ -40,7 +40,7 @@ urlpatterns = [
     
     path('assignment/', views.AssignmentView.as_view(), name='assignment'),
     path('assignment/<int:assignment_id>/', views.AssignmentDetailView.as_view(), name='assignment_details'),
-    path('assignment/<int:assignment_id>/submission/', views.AssignmentSubmissionView.as_view(), name='assignment-submission'),
+    path('learningPath/<int:learningpath_id>/assignment/<int:assignment_id>/submission/', views.AssignmentSubmissionView.as_view(), name='assignment-submission'),
     path('assignment/<int:assignment_id>/submission/<int:submission_id>/', views.AssignmentSubmissionDetailView.as_view(), name='submission-detail'),
 
 #  gurukul.gyaandweep.com/gurukul/"guruk_uuid"/quiz/"quiz_uuid"
@@ -55,13 +55,13 @@ urlpatterns = [
 
     path('quiz/', views.QuizView.as_view(), name='quiz'),
     path('quiz/<int:quiz_id>/', views.QuizDetailView.as_view(), name='quiz_detail'),
-    path('quiz/<int:quiz_id>/submission/', views.QuizSubmissionView.as_view(), name='quiz-overview'),
-    # path('quiz/<int:quiz_id>/overview/', views.QuizOver)
+    path('leariningPath/<int:learningpath_id>/quiz/<int:quiz_id>/submission/', views.QuizSubmissionView.as_view(), name='quiz-overview'),
+    path('quiz/<int:quiz_id>/overview', views.QuizOverviewView.as_view(), name='quiz-overview'),
     
     path('test/', views.TestView.as_view(), name='test'),
     path('test/<int:test_id>/', views.TestDetailView.as_view(), name='test_details'),
-    path('test/<int:test_id>/submission/', views.QuizSubmissionView.as_view(), name='quiz-overview'),
-
+    path('leariningPath/<int:learningpath_id>/test/<int:test_id>/submission/', views.QuizSubmissionView.as_view(), name='quiz-overview'),
+    path('test/<int:test_id>/overview/', views.TestOverviewView.as_view(), name='test-overview'),
     
     path('studyMaterial/', views.StudyMaterialView.as_view(), name='studymaterial'),
     path('studyMaterial/<int:studymaterial_id>/', views.StudyMaterialDetailView.as_view(), name='studymaterial_details'),
