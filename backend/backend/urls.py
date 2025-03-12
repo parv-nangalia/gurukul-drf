@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from gurukul import views
+from gurukul import authenticate
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    # path('auth/',  authenticate.HomepageAPIView.as_view()),
+    path('login/', authenticate.UserLogin.as_view()),
+    path('signin/', authenticate.SignupView.as_view()),
+    path('logout/', authenticate.LogoutAPIView.as_view()),
     path('api/', include('gurukul.urls'))
 ]
